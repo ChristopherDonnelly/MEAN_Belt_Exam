@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { NewComponent } from './new/new.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,
