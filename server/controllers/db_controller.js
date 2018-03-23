@@ -3,7 +3,7 @@ const DB_Model = mongoose.model('DB_Model');
 
 module.exports = {
     findAll: (req, res) => {
-        DB_Model.find({}, (err, data) => {
+        DB_Model.find({}, null, {sort: {type: 1}}, (err, data) => {
             if(err){
                 res.json({message: "Error", error: err});
             }else{
@@ -22,17 +22,19 @@ module.exports = {
         });
     },
     update: (req, res) => {
+
+        console.log
         var query = {'_id': req.params.id};
 
-        console.log('Attempting to update DB Model by Id: '+req.body);
-
+        console.log('Attempting to update DB Model by Id: '+req.body.id);
+        if(req.body.skills) console.log(req.body.skills)
         DB_Model.findByIdAndUpdate(query, req.body, {upsert: true, new: true, runValidators: true}, function(err, data){
             if(err) {
                 console.log('Something went wrong, could not update DB Model: '+req.params.id);
                 console.log("Returned error", err);
                 res.json({message: "Error", error: err});
             } else {
-                console.log(author)
+                console.log(data)
                 res.json({message: "Success", data: data});
             }
         });
