@@ -29,7 +29,7 @@ export class NewComponent implements OnInit {
 
   add(){
     console.log(this.pets)
-    let createPet = this._httpService.createPet({name:this.pets.name,type:this.pets.type,description:this.pets.description});
+    let createPet = this._httpService.createPet({name:this.pets.name, type:this.pets.type, description:this.pets.description, skills:this.pets.skills});
     createPet.subscribe(data => {
       if(data['message']=="Error"){
         this.errors = {name: '', type: '', description: ''}
