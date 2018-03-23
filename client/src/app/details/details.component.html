@@ -1,0 +1,50 @@
+<table>
+  <tr>
+    <td class="align-lt"><h1>Pet Shelter</h1></td>
+    <td class="align-rt"><a href="#" [routerLink]="['/']">Home</a></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="align-lt"><p>Details about {{ pets.name }}</p></td>
+  </tr>
+  <tr>
+    <td>
+      <p>Pet type: </p>
+    </td>
+    <td>
+      <p>{{ pets.type }}</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Description: </p>
+    </td>
+    <td>
+      <p>{{ pets.description }}</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Skills: </p>
+    </td>
+    <td>
+      <p *ngIf="pets.skills.length<1">None</p>
+      <p *ngFor="let skill of pets.skills">{{ skill }}</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Likes: </p>
+    </td>
+    <td>
+      <p>{{ pets.likes }}</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="like();" [disabled]="pets.liked">Like this pet</button>
+    </td>
+    <td>
+        <button (click)="adopt();">Adopt this pet!</button>
+      </td>
+  </tr>
+</table>

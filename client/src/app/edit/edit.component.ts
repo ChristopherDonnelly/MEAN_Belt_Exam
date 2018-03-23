@@ -5,12 +5,12 @@ import { PetsService } from '../pets.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-new',
-  templateUrl: './new.component.html',
-  styleUrls: ['./new.component.css']
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css']
 })
 
-export class NewComponent implements OnInit {
+export class EditComponent implements OnInit {
 
   errors: any;
 
@@ -24,14 +24,27 @@ export class NewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.errors = {name: '', type: '', description: ''}
+  	this.errors = {name: '', type: '', description: ''}
+   this._route.params.subscribe(params => {
+      this.getPet(params['id']);
+    });
   }
 
-  add(){
+  getPet(id){
+    let getPetById = this._httpService.getPet(id);
+    getPetById.subscribe(data => {
+      this.pets = data['data'];
+      this.pets.skills = data['data'].skills;
+      console.log(this.pets);
+    });
+  }
+
+  edit(){
+    delete this.pets['__v'];
     console.log(this.pets)
-    let createPet = this._httpService.createPet({name:this.pets.name,type:this.pets.type,description:this.pets.description});
-    createPet.subscribe(data => {
-      if(data['message']=="Error"){
+    let updatePetById = this._httpService.updatePet(this.pets._id, this.pets);
+    updatePetById.subscribe(data => {
+	if(data['message']=="Error"){
         this.errors = {name: '', type: '', description: ''}
         if(data['error'].errors['name'])
           this.errors.name=data['error'].errors['name'];
@@ -40,12 +53,11 @@ export class NewComponent implements OnInit {
         if(data['error'].errors['description'])
           this.errors.description=data['error'].errors['description'];
       }else{
-        console.log('here')
-        // this.pets = data['data'];
-        // this.pets.skills = data['data'].skills;
-        // console.log(this.pets);
-        this._router.navigate(['/']);
-      }
+      this.pets = data['data'];
+      this.pets.skills = data['data'].skills;
+      console.log(this.pets);
+      this._router.navigate(['/']);
+	}
     });
   }
 

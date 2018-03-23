@@ -20,7 +20,7 @@ tr:last-of-type td {
     padding-top: 20px;
 }
 
-#add_layer {
+#edit_layer {
     padding: 10px 20px;
     border: 1px solid #999999;
     width: 100%;
@@ -29,7 +29,7 @@ tr:last-of-type td {
     margin: 0px auto;
 }
 
-#add_layer p, label {
+#edit_layer p, label {
     color: #707070;
     position: relative;
 }

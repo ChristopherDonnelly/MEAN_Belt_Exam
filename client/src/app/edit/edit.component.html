@@ -1,0 +1,44 @@
+<table>
+  <tr>
+    <td colspan="2" class="align-lt"><h1>Pet Shelter</h1></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="align-lt"><p>Edit this pet</p></td>
+  </tr>
+</table>
+<div id="edit_layer">
+
+  <label for="name">Pet name:
+    <input type="text" name="name" [(ngModel)]="pets.name" value="{{pets.name}}" 
+    required minlength="3">
+    <span *ngIf="errors.name!=''" class="red">{{errors.name.message}}</span>
+  </label>
+  <label for="type">Pet type:
+    <input type="text" name="type" [(ngModel)]="pets.type" value="{{pets.type}}" 
+    required minlength="3">
+    <span *ngIf="errors.type!=''" class="red">{{errors.type.message}}</span>
+  </label>
+  <label for="description">Description:
+    <input type="text" name="description" [(ngModel)]="pets.description" value="{{pets.description}}" 
+    required minlength="3">
+    <span *ngIf="errors.description!=''" class="red">{{errors.description.message}}</span>
+  </label>
+  <div id="skills_layer">
+    <p>Skills (optional): </p>
+    <label for="skill_1">Skill 1:
+      <input type="text" name="skill_1" [(ngModel)]="pets.skills[0]" value="{{pets.skills[0]}}" [placeholder]="!pets.skills[0]||pets.skills[0]==''?'Enter new skill':pets.skills[0]">
+    </label>
+    <label for="skill_2">Skill 2:
+      <input type="text" name="skill_2" [(ngModel)]="pets.skills[1]" value="{{pets.skills[1]}}" [placeholder]="!pets.skills[1]||pets.skills[1]==''?'Enter new skill':pets.skills[1]">
+    </label>
+    <label for="skill_3">Skill 3:
+      <input type="text" name="skill_3" [(ngModel)]="pets.skills[2]" value="{{pets.skills[2]}}" [placeholder]="!pets.skills[2]||pets.skills[2]==''?'Enter new skill':pets.skills[2]">
+    </label>
+  </div>
+
+  <div id="nav_layer">
+    <button (click)="edit();">Edit pet</button>
+    <button (click)="cancel();">Cancel</button>
+  </div>
+
+</div>

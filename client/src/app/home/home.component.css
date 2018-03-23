@@ -1,0 +1,74 @@
+h1 {
+    margin: 0px;
+}
+p {
+    font-weight: bold;
+}
+table {
+    width: 100%;
+    min-width: 400px;
+    max-width: 690px;
+    margin: 0px auto;
+}
+table:first-of-type {
+    border-spacing: 0px;
+}
+table~table {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table~table th, table~table td {
+    width: 33%;
+    padding: 5px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+table~table td:last-of-type {
+    text-align: center;
+}
+
+table~table tr {
+    text-align: left;
+}
+table~table thead tr{
+    background: #d3d3d3;
+    color: white;
+    font-weight: bold;
+}
+table~table tbody tr:nth-child(even){
+    background: #d3d3d3;
+}
+table~table tbody tr:nth-child(odd){
+    background: #FFF;
+}
+td:last-of-type {
+    min-width: 220px;
+}
+
+button {
+    width: 100px;
+    height: 35px;
+    background-color: #66bbff;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #49606e;
+}
+
+.align-rt {
+    text-align: right !important;
+}
+
+.align-lt {
+    text-align: left !important;
+}

@@ -7,22 +7,5 @@
 
 #wrapper {
     margin: 30px auto;
-    text-align: center;
-    width: 970px;
-}
-
-#wrapper h1 {
-    margin: 40px;
-}
-
-fieldset {
-    position: relative;
-    text-align: left;
-    margin: 40px;
-    padding: 10px 30px;
-    height: 450px;
-}
-
-legend {
-    font-size: 2em;
+    width: 85%;
 }

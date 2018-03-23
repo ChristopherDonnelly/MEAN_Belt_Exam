@@ -10,6 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
+import { DetailsComponent } from './details/details.component';
+
+import { PetsService } from './pets.service';
 
 
 @NgModule({
@@ -17,7 +21,9 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    NewComponent
+    NewComponent,
+    EditComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, PetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
